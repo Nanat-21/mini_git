@@ -1,9 +1,9 @@
 #include "mini_git.hpp"
 #include <iostream>
-#include <experimental/filesystem>
+#include <filesystem>
 #include <fstream>
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 
 void MiniGitRepo::init(){

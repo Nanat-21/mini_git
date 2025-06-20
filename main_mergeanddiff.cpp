@@ -1,0 +1,58 @@
+#include "mini_git.hpp"
+#include <iostream>
+
+int main() {
+    MiniGitRepo repo;
+
+    std::string command;
+    std::cout << "Enter command: ";
+    std::cin >> command;
+
+    if (command == "init") {
+        repo.init();
+    }
+    else if ( command=="add"){
+        std::string filename;
+        std::cin>>filename;
+        repo.add(filename);
+    }
+    else if(command=="commit"){
+        std::string flag;
+        std::cin>> flag;
+        if(flag == "-m"){
+            std::string message;
+            std::getline(std::cin>>std::ws, message);
+            repo.commit(message);
+        }else{
+            std::cout<<"usage: commit -m\"message\"\n";
+        }
+    }
+    else if(command == "log"){
+        repo.log();
+    }
+    else if(command =="branch"){
+        std::string branchName;
+        std::cin>>branchName;
+        repo.branch(branchName);
+    }
+    else if(command == "checkout"){
+        std::string branchName;
+        std::cin>>branchName;
+        repo.checkout(branchName);
+    }
+    else if(command =="merge"){
+        std::string branchName;
+        std::cin>> branchName;
+        repo.merge(branchName);
+    }
+    else if (command=="diff") {
+        std::string c1, c2;
+        std::cin >> c1 >> c2;
+        repo.diff(c1, c2);
+    }
+    else{
+        std::cout << "Unknown command\n";
+    }
+
+    return 0;
+}

@@ -5,7 +5,6 @@
 
 namespace fs = std::filesystem;
 
-
 void MiniGitRepo::init(){
     if (fs::exists(baseDir)){
         std::cout<<"MiniGit is already initialized.\n";
